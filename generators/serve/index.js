@@ -1,6 +1,7 @@
 'use strict';
 var generators = require('yeoman-generator');
 var chalk = require('chalk');
+var php = process.argv.splice(3);
 
 module.exports = generators.Base.extend({
 
@@ -11,7 +12,7 @@ module.exports = generators.Base.extend({
   },
 
   end: function () {
-    this.spawnCommand('php', ['-S', '127.0.0.1:3000']);
+    this.spawnCommand(php == null ? 'php' : php, ['-S', '127.0.0.1:3000']);
   
   }
 
